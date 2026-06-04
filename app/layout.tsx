@@ -27,7 +27,23 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <Header />
+        {/* Page transition wrapper */}
+        <AnimatePresence mode="wait">
+          <motion.main
+            key={usePathname()}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+            className="flex-1"
+          >
+            {children}
+          </motion.main>
+        </AnimatePresence>
+        <Footer />
+      </body>
     </html>
   );
 }
