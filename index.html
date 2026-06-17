@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul R Kamble | Software Development Engineer & Backend Specialist</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of Rahul R Kamble, Software Development Engineer specializing in backend systems, REST APIs, Python, and Java.">
+    <meta name="keywords" content="Rahul R Kamble, Software Development Engineer, Backend, Python, Flask, Django, Java, SQL, Portfolio, Developer">
+    <meta name="author" content="Rahul R Kamble">
+    
+    <!-- Open Graph / Social Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rahul R Kamble | Software Development Engineer">
+    <meta property="og:description" content="Portfolio of Rahul R Kamble. SDE specializing in scalable backend APIs, database design, and cloud intelligence tools.">
+    <meta property="og:image" content="assets/profile.jpg">
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=1.0.1">
+</head>
+<body>
+
+    <!-- Premium Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="site-header">
+        <div class="header-container">
+            <a href="#hero" class="logo hover-target" id="logoLink">
+                <span class="logo-dot"></span>
+                Rahul R Kamble
+            </a>
+            
+            <nav id="nav-menu" class="nav-links">
+                <a href="#about" class="nav-item hover-target">// about</a>
+                <a href="#skills" class="nav-item hover-target">// skills</a>
+                <a href="#experience" class="nav-item hover-target">// experience</a>
+                <a href="#projects" class="nav-item hover-target">// projects</a>
+                <a href="#education" class="nav-item hover-target">// education</a>
+                <a href="#contact" class="nav-item hover-target">// contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://github.com/DevilRK23" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-header hover-target" id="github-header-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <button id="menu-toggle" class="hamburger-menu hover-target" aria-label="Toggle Navigation Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge animate-fade-in">
+                        <span class="badge-dot"></span> Available for Roles
+                    </div>
+                    <h1 class="hero-title animate-slide-up">
+                        Hi, I'm <span class="text-highlight">Rahul R Kamble</span>
+                    </h1>
+                    <h2 class="hero-subtitle animate-slide-up">
+                        I build <span id="typewriter" class="typewriter-text"></span>
+                    </h2>
+                    <p class="hero-description animate-slide-up">
+                        Performance-driven Software Development Engineer specializing in backend development, scalable API design, and system architecture. Experience in optimizing database code performance and designing modular systems.
+                    </p>
+                    <div class="hero-ctas animate-slide-up">
+                        <a href="#contact" class="btn btn-primary hover-target" id="hero-contact-btn">
+                            Get In Touch <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#projects" class="btn btn-outline hover-target" id="hero-explore-btn">
+                            Explore Projects ↓
+                        </a>
+                    </div>
+                    <div class="hero-socials animate-slide-up">
+                        <a href="https://github.com/DevilRK23" target="_blank" rel="noopener noreferrer" class="social-icon-btn hover-target" aria-label="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/rahul-rajkumar-kamble23" target="_blank" rel="noopener noreferrer" class="social-icon-btn hover-target" aria-label="LinkedIn Profile">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:rahul.rrk2307@gmail.com" class="social-icon-btn hover-target" aria-label="Send Email">
+                            <i class="far fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual animate-fade-in">
+                    <div class="photo-frame hover-target">
+                        <div class="photo-glow"></div>
+                        <img src="assets/profile.jpg" alt="Rahul R Kamble" class="profile-image">
+                        <div class="photo-bracket bracket-tl"></div>
+                        <div class="photo-bracket bracket-tr"></div>
+                        <div class="photo-bracket bracket-bl"></div>
+                        <div class="photo-bracket bracket-br"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-marquee">
+                <div class="marquee-track">
+                    <span class="marquee-item">PYTHON</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">FASTAPI</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">FLASK</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">JAVA</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">SQL</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">MICROSERVICES</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">RESTful API DESIGN</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">AI & LLMs</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">PYTHON</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">FASTAPI</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">FLASK</span>
+                    <span class="marquee-sep">•</span>
+                    <span class="marquee-item">JAVA</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span>01.</span> ABOUT ME</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-info">
+                        <p class="lead-text">
+                            I am a Software Development Engineer with hands-on experience designing modular systems and backend frameworks.
+                        </p>
+                        <p>
+                            With a strong academic foundation in Electronics & Communication Engineering from CMR Institute of Technology, Bangalore, I have combined core engineering principles with software design pattern methodologies. My background spans building intelligent LLM integration frameworks, real-time cyber threat vector scanners, and low-latency database queries.
+                        </p>
+                        <p>
+                            During my software engineering internships, I've successfully refactored legacy codebases, resolved critical application bugs, and reduced data retrieval latency by 12% using strategic SQL query indexing.
+                        </p>
+                        <div class="about-stats-container">
+                            <div class="stat-box">
+                                <div class="stat-number gradient-text">12%</div>
+                                <div class="stat-label">Latency Reduction</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number gradient-text">5+</div>
+                                <div class="stat-label">Features Deployed</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number gradient-text">7.07</div>
+                                <div class="stat-label">Engineering CGPA</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-cards animate-fade-in">
+                        <div class="info-card hover-target">
+                            <div class="info-card-icon"><i class="fas fa-code"></i></div>
+                            <h3>SDE & Backend Specialist</h3>
+                            <p>Developing RESTful microservices, handling database relational mappings, and writing clean backend business logic.</p>
+                        </div>
+                        <div class="info-card hover-target">
+                            <div class="info-card-icon"><i class="fas fa-brain"></i></div>
+                            <h3>DSA & OOP Specialist</h3>
+                            <p>Strong foundations in computer science core concepts, design patterns (SOLID), and analytical problem-solving.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-padding section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span>02.</span> MY SKILLS</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="skills-wrapper">
+                    
+                    <!-- Category 1 -->
+                    <div class="skills-category-card hover-target">
+                        <div class="skills-category-header">
+                            <i class="fas fa-server"></i>
+                            <h3>Backend & Frameworks</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-tag"><i class="fab fa-python"></i> Flask</div>
+                            <div class="skill-tag"><i class="fab fa-python"></i> Django</div>
+                            <div class="skill-tag"><i class="fas fa-bolt"></i> FastAPI</div>
+                            <div class="skill-tag"><i class="fas fa-network-wired"></i> RESTful API Design</div>
+                            <div class="skill-tag"><i class="fas fa-database"></i> CRUD Operations</div>
+                            <div class="skill-tag"><i class="fas fa-cubes"></i> Microservices</div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2 -->
+                    <div class="skills-category-card hover-target">
+                        <div class="skills-category-header">
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>Languages</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-tag"><i class="fab fa-python"></i> Python (Advanced)</div>
+                            <div class="skill-tag"><i class="fab fa-java"></i> Java (Core)</div>
+                            <div class="skill-tag"><i class="fas fa-database"></i> SQL (MySQL)</div>
+                            <div class="skill-tag"><i class="fab fa-js"></i> JavaScript (Basic)</div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3 -->
+                    <div class="skills-category-card hover-target">
+                        <div class="skills-category-header">
+                            <i class="fas fa-project-diagram"></i>
+                            <h3>Core CS Concepts</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-tag"><i class="fas fa-stream"></i> Data Structures & Algorithms</div>
+                            <div class="skill-tag"><i class="fas fa-object-group"></i> OOP Principles</div>
+                            <div class="skill-tag"><i class="fas fa-sync-alt"></i> SDLC & SOLID</div>
+                            <div class="skill-tag"><i class="fas fa-sitemap"></i> Relational Database Mapping</div>
+                        </div>
+                    </div>
+
+                    <!-- Category 4 -->
+                    <div class="skills-category-card hover-target">
+                        <div class="skills-category-header">
+                            <i class="fas fa-tools"></i>
+                            <h3>Tools & Utilities</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-tag"><i class="fab fa-git-alt"></i> Git & GitHub</div>
+                            <div class="skill-tag"><i class="fas fa-paper-plane"></i> Postman</div>
+                            <div class="skill-tag"><i class="fas fa-terminal"></i> Linux CLI</div>
+                            <div class="skill-tag"><i class="fas fa-code"></i> VS Code</div>
+                            <div class="skill-tag"><i class="fas fa-database"></i> ChromaDB (Vector DB)</div>
+                            <div class="skill-tag"><i class="fas fa-users"></i> Agile / Scrum</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span>03.</span> EXPERIENCE</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="timeline">
+                    <!-- Item 1: Edutainer -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">February 2026 – May 2026</div>
+                        <div class="timeline-content glass-card hover-target">
+                            <span class="timeline-badge">Internship</span>
+                            <h3 class="timeline-role">Software Developer Intern</h3>
+                            <h4 class="timeline-company gradient-text">Edutainer <span class="loc-text">(Remote)</span></h4>
+                            <ul class="timeline-bullets">
+                                <li>Architected and deployed 5+ scalable backend features using Python and Java, improving system modularity through OOP principles.</li>
+                                <li>Engineered and optimized RESTful APIs, reducing data retrieval latency by 12% through efficient SQL query structuring and database indexing.</li>
+                                <li>Refactored legacy codebases using SDLC best practices, resolving 15+ critical bugs and enhancing overall application reliability.</li>
+                                <li>Collaborated in an Agile environment using Git/GitHub for version control, participating in sprint planning and code reviews.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Wells Fargo -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">October 2024</div>
+                        <div class="timeline-content glass-card hover-target">
+                            <span class="timeline-badge">Simulation Experience</span>
+                            <h3 class="timeline-role">Software Engineering Virtual Experience</h3>
+                            <h4 class="timeline-company gradient-text">Wells Fargo (Forage) <span class="loc-text">(Virtual)</span></h4>
+                            <ul class="timeline-bullets">
+                                <li>Simulated enterprise-level software delivery by solving complex DSA challenges focused on memory efficiency and execution speed.</li>
+                                <li>Developed clean, production-ready code adhering to industry-standard SOLID principles and design patterns.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span>04.</span> PROJECTS</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <!-- Project Filter Tabs -->
+                <div class="project-filters">
+                    <button class="filter-btn active hover-target" data-filter="all">All</button>
+                    <button class="filter-btn hover-target" data-filter="backend">Backend & APIs</button>
+                    <button class="filter-btn hover-target" data-filter="ai-ml">AI & ML</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid">
+                    
+                    <!-- Project 1: AI Operations Copilot -->
+                    <div class="project-card glass-card hover-target" data-category="backend ai-ml">
+                        <div class="project-card-visual gradient-project-1">
+                            <i class="fas fa-robot project-visual-icon"></i>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-tech">
+                                <span>FastAPI</span>
+                                <span>ChromaDB</span>
+                                <span>RAG</span>
+                                <span>LLMs</span>
+                            </div>
+                            <h3 class="project-title">AI Operations Copilot</h3>
+                            <p class="project-description">
+                                GenAI-powered incident management system automating log analysis and root cause detection. Features a RAG pipeline utilizing ChromaDB vector store and Sentence Transformers for semantic log querying.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/DevilRK23/AI_Operations_copilot" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: AI Network Threat Detection -->
+                    <div class="project-card glass-card hover-target" data-category="backend ai-ml">
+                        <div class="project-card-visual gradient-project-2">
+                            <i class="fas fa-shield-alt project-visual-icon"></i>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Flask</span>
+                                <span>Cybersecurity</span>
+                            </div>
+                            <h3 class="project-title">AI Network Threat Detection System</h3>
+                            <p class="project-description">
+                                Cybersecurity validation engine detecting suspicious package activities. Employs anomaly scoring algorithms, rate-limiting, and robust request filtering in a microservice structure.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/DevilRK23/AI_Network_Defence_System" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Tumor Detection API -->
+                    <div class="project-card glass-card hover-target" data-category="backend ai-ml">
+                        <div class="project-card-visual gradient-project-3">
+                            <i class="fas fa-microscope project-visual-icon"></i>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-tech">
+                                <span>Scikit-learn</span>
+                                <span>Flask</span>
+                                <span>REST APIs</span>
+                            </div>
+                            <h3 class="project-title">Tumor Detection API</h3>
+                            <p class="project-description">
+                                Diagnostic backend system mapping predictive machine learning output (96% accuracy) to REST APIs, sending high-speed structured JSON payloads for medical visualizations.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/DevilRK23/Tumor_Detection" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: REST API Management Service -->
+                    <div class="project-card glass-card hover-target" data-category="backend">
+                        <div class="project-card-visual gradient-project-4">
+                            <i class="fas fa-database project-visual-icon"></i>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>MySQL</span>
+                                <span>Postman</span>
+                            </div>
+                            <h3 class="project-title">REST API Management Service</h3>
+                            <p class="project-description">
+                                Robust database querying microservice managing complex database transactions with multi-table joins. Built with strict verification layers via Postman integrations.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/DevilRK23/financial-advisory-system" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitHub Feed Area -->
+                <div class="github-feed-container">
+                    <div class="github-feed-title-block">
+                        <i class="fab fa-github-alt"></i>
+                        <h3>Recent Open Source Work</h3>
+                    </div>
+                    <div id="github-repos-grid" class="github-repos-grid">
+                        <div class="loading-state">
+                            <div class="spinner"></div>
+                            <span>Connecting to DevilRK23 GitHub...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications Section -->
+        <section id="education" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span>05.</span> EDUCATION & CERTIFICATIONS</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="education-grid">
+                    <!-- Left Card: Education -->
+                    <div class="edu-card glass-card hover-target">
+                        <div class="edu-card-icon"><i class="fas fa-university"></i></div>
+                        <span class="edu-year">2022 – 2026</span>
+                        <h3>Bachelor of Engineering</h3>
+                        <h4>Electronics & Communication Engineering</h4>
+                        <p class="edu-college">CMR Institute of Technology, Bangalore, India</p>
+                        <div class="edu-score">
+                            <span class="score-badge">CGPA: 7.07 / 10</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Card: Certifications -->
+                    <div class="certs-card glass-card hover-target">
+                        <div class="certs-card-header">
+                            <i class="fas fa-certificate"></i>
+                            <h3>Certifications</h3>
+                        </div>
+                        <ul class="cert-list">
+                            <li>
+                                <i class="fas fa-award cert-bullet"></i>
+                                <div>
+                                    <strong>Junior Software Developer Intern</strong>
+                                    <p>Edutainer</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-award cert-bullet"></i>
+                                <div>
+                                    <strong>Junior Python Developer</strong>
+                                    <p>Henry Harvin</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-award cert-bullet"></i>
+                                <div>
+                                    <strong>Software Engineering Simulation</strong>
+                                    <p>Wells Fargo (Forage)</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span>06.</span> GET IN TOUCH</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info-panel glass-card hover-target">
+                        <h3>Let's collaborate!</h3>
+                        <p>
+                            I am actively looking for entry-level Software Development Engineer (SDE) roles, backend specialist projects, and opportunities to solve core engineering challenges. Feel free to reach out to me!
+                        </p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <a href="mailto:rahul.rrk2307@gmail.com" class="hover-target">rahul.rrk2307@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <a href="tel:+917338344196" class="hover-target">+91 7338344196</a> <br>
+                                    <a href="tel:+917892849027" class="hover-target">+91 7892849027</a>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <h4>Location</h4>
+                                    <span>Bangalore, India</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-panel glass-card hover-target">
+                        <form id="contact-form" autocomplete="off">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" required placeholder=" " class="hover-target">
+                                <label for="name">Your Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required placeholder=" " class="hover-target">
+                                <label for="email">Your Email</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" required placeholder=" " class="hover-target">
+                                <label for="subject">Subject</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" required rows="5" placeholder=" " class="hover-target"></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block hover-target" id="form-submit-btn">
+                                Send Message <i class="far fa-paper-plane"></i>
+                            </button>
+                            <div id="form-status" class="form-status-msg"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Rahul R Kamble. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/DevilRK23" target="_blank" rel="noopener noreferrer" class="hover-target"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/rahul-rajkumar-kamble23" target="_blank" rel="noopener noreferrer" class="hover-target"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:rahul.rrk2307@gmail.com" class="hover-target"><i class="far fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="app.js?v=1.0.1"></script>
+</body>
+</html>
