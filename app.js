@@ -342,11 +342,23 @@ const fetchGitHubRepos = async () => {
 
         githubReposGrid.innerHTML = ''; // Clear loading spinner
 
+        const customRepoDescriptions = {
+            'AI_Operations_copilot': 'GenAI incident copilot utilizing a RAG pipeline and ChromaDB semantic searches to ingest logs, detect anomalies and suggest root-cause resolution workflows.',
+            'AI_Network_Defence_System': 'High-performance packet validator utilizing Isolation Forest anomaly scoring to scan network traffic, trigger rate-limiting and block suspicious endpoint vectors.',
+            'Tumor_Detection': 'Diagnostic backend system mapping predictive machine learning output (96% accuracy) to REST APIs, sending high-speed structured JSON payloads for medical visualizations.',
+            'financial-advisory-system': 'Robust database querying microservice managing complex database transactions with multi-table joins. Wrote optimized multi-table JOINs in raw SQL to maximize execution speed.',
+            'Employee_Performance_and_Retention_analysis': 'Data-driven analysis utilizing Python libraries to dissect factors contributing to employee retention, training needs and overall workspace productivity levels.',
+            'Neural_Network': 'A pure Python implementation of deep neural layers from scratch to solve vanishing gradient issues by replacing Sigmoid with ReLU and implementing Xavier initialization.'
+        };
+
         filteredRepos.forEach(repo => {
             const lang = repo.language ? repo.language : 'Repository';
             const langLower = lang.toLowerCase();
             const color = langColors[langLower] || langColors.default;
-            const description = repo.description || 'No description provided. Click below to inspect code.';
+            
+            // Use custom description if available, fallback to GitHub description
+            const rawDesc = repo.description || '';
+            const description = customRepoDescriptions[repo.name] || rawDesc || 'No description provided. Click below to inspect code.';
             
             const card = document.createElement('a');
             card.href = repo.html_url;
