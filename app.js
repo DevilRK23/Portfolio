@@ -382,62 +382,7 @@ const fetchGitHubRepos = async () => {
         
     } catch (error) {
         console.error('GitHub API error:', error);
-        
-        // Render detailed static backup items if API limits hit or browser offline
-        githubReposGrid.innerHTML = `
-            <a href="https://github.com/DevilRK23/AI_Operations_copilot" target="_blank" rel="noopener" class="repo-card hover-target">
-                <div class="repo-top">
-                    <svg class="repo-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                    <div class="repo-stars">★ 2</div>
-                </div>
-                <div>
-                    <h4 class="repo-title">AI_Operations_copilot</h4>
-                    <p class="repo-desc">Incident management logs vector semantic parsing and LLM automation tools.</p>
-                </div>
-                <div class="repo-bottom">
-                    <div class="repo-lang">
-                        <span class="lang-color" style="background-color: #3572A5"></span>
-                        <span>Python</span>
-                    </div>
-                    <span>Static Backup</span>
-                </div>
-            </a>
-            <a href="https://github.com/DevilRK23/AI_Network_Defence_System" target="_blank" rel="noopener" class="repo-card hover-target">
-                <div class="repo-top">
-                    <svg class="repo-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                    <div class="repo-stars">★ 1</div>
-                </div>
-                <div>
-                    <h4 class="repo-title">AI_Network_Defence_System</h4>
-                    <p class="repo-desc">Real-time cybersecurity anomaly tracking APIs and rate limiting security blocks.</p>
-                </div>
-                <div class="repo-bottom">
-                    <div class="repo-lang">
-                        <span class="lang-color" style="background-color: #3572A5"></span>
-                        <span>Python</span>
-                    </div>
-                    <span>Static Backup</span>
-                </div>
-            </a>
-            <a href="https://github.com/DevilRK23" target="_blank" rel="noopener" class="repo-card hover-target">
-                <div class="repo-top">
-                    <svg class="repo-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                    <div class="repo-stars">★ 0</div>
-                </div>
-                <div>
-                    <h4 class="repo-title">Visit DevilRK23 GitHub</h4>
-                    <p class="repo-desc">See the rest of Rahul's software engineering repositories directly on GitHub.</p>
-                </div>
-                <div class="repo-bottom">
-                    <div class="repo-lang">
-                        <span class="lang-color" style="background-color: #f1e05a"></span>
-                        <span>JavaScript</span>
-                    </div>
-                    <span>Link</span>
-                </div>
-            </a>
-        `;
-        registerHoverTargets();
+        // Fallback: leave the pre-rendered static HTML backup cards in place
     }
 };
 
