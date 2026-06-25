@@ -50,8 +50,14 @@
             </nav>
 
             <div class="header-actions">
-                <a href="https://github.com/DevilRK23" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-header hover-target" id="github-header-btn">
+                <a href="assets/Rahul_Kamble_23.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-header hover-target" id="resume-header-btn">
+                    <i class="far fa-file-pdf"></i> Resume
+                </a>
+                <a href="https://github.com/DevilRK23" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-header hover-target hide-mobile" id="github-header-btn">
                     <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://linkedin.com/in/rahul-rajkumar-kamble23" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-header hover-target hide-mobile" id="linkedin-header-btn">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
                 </a>
                 <button id="menu-toggle" class="hamburger-menu hover-target" aria-label="Toggle Navigation Menu">
                     <span></span>
@@ -71,17 +77,31 @@
                         <span class="badge-dot"></span> Available for Roles
                     </div>
                     <h1 class="hero-title animate-slide-up">
-                        Hi, I'm <span class="text-highlight">Rahul R Kamble</span>
+                        Rahul R Kamble
                     </h1>
                     <h2 class="hero-subtitle animate-slide-up">
-                        I build <span id="typewriter" class="typewriter-text"></span>
+                        Backend Engineer &amp; <span class="text-highlight">AI Systems Builder</span>
                     </h2>
+                    <div class="hero-tagline animate-slide-up">
+                        <span class="tagline-prefix">// Specializing in</span> <span id="typewriter" class="typewriter-text"></span>
+                    </div>
                     <p class="hero-description animate-slide-up">
-                        Performance-driven Software Development Engineer specializing in backend development, scalable API design, and system architecture. Experience in optimizing database code performance and designing modular systems.
+                        Building GenAI applications, RAG systems, FastAPI services, and intelligent automation. Specializing in low-latency backend APIs, database optimization, and modular system design.
                     </p>
+                    <div class="currently-seeking animate-slide-up">
+                        <span class="seeking-title">Currently Seeking:</span>
+                        <div class="seeking-badges">
+                            <span class="seeking-badge"><i class="fas fa-code"></i> Software Engineer</span>
+                            <span class="seeking-badge"><i class="fas fa-server"></i> Backend Engineer</span>
+                            <span class="seeking-badge"><i class="fas fa-brain"></i> AI/ML Engineer</span>
+                        </div>
+                    </div>
                     <div class="hero-ctas animate-slide-up">
                         <a href="#contact" class="btn btn-primary hover-target" id="hero-contact-btn">
                             Get In Touch <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="assets/Rahul_Kamble_23.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline hover-target" id="hero-resume-btn">
+                            <i class="far fa-file-pdf"></i> Resume PDF
                         </a>
                         <a href="#projects" class="btn btn-outline hover-target" id="hero-explore-btn">
                             Explore Projects ↓
@@ -343,26 +363,34 @@
                 <!-- Projects Grid -->
                 <div class="projects-grid">
                     
-                    <!-- Project 1: AI Operations Copilot -->
-                    <div class="project-card glass-card hover-target" data-category="backend ai-ml">
+                    <!-- Project 1: AI Operations Copilot (Spotlight Showpiece) -->
+                    <div class="project-card spotlight-project glass-card hover-target" data-category="backend ai-ml" id="copilot-project-card">
                         <div class="project-card-visual gradient-project-1">
+                            <div class="spotlight-tag"><i class="fas fa-star"></i> Featured AI Project</div>
                             <i class="fas fa-robot project-visual-icon"></i>
                         </div>
                         <div class="project-card-content">
                             <div class="project-tech">
-                                <span>FastAPI</span>
+                                <span>RAG Pipeline</span>
                                 <span>ChromaDB</span>
-                                <span>RAG</span>
-                                <span>LLMs</span>
+                                <span>FastAPI</span>
+                                <span>Sentence Transformers</span>
+                                <span>Root Cause Analysis</span>
                             </div>
                             <h3 class="project-title">AI Operations Copilot</h3>
                             <p class="project-description">
-                                GenAI-powered incident management system automating log analysis and root cause detection. Features a RAG pipeline utilizing ChromaDB vector store and Sentence Transformers for semantic log querying.
+                                GenAI-powered incident management system automating log analysis and root cause detection. Employs a semantic search RAG architecture with vector databases to suggest actionable incident resolution workflows.
                             </p>
-                            <div class="project-links">
-                                <a href="https://github.com/DevilRK23/AI_Operations_copilot" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                                    <i class="fab fa-github"></i> Code
+                            <div class="project-links-group">
+                                <button class="btn-project-link demo-trigger hover-target" id="demo-btn-copilot">
+                                    <i class="fas fa-play"></i> Live Demo
+                                </button>
+                                <a href="https://github.com/DevilRK23/AI_Operations_copilot" target="_blank" rel="noopener noreferrer" class="btn-project-link hover-target">
+                                    <i class="fab fa-github"></i> GitHub
                                 </a>
+                                <button class="btn-project-link arch-trigger hover-target" id="arch-btn-copilot">
+                                    <i class="fas fa-project-diagram"></i> Architecture
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -644,6 +672,103 @@
             </div>
         </div>
     </footer>
+    <!-- Interactive Project Modal (Simulated Live API & Architecture View) -->
+    <div id="project-modal" class="project-modal-overlay">
+        <div class="project-modal-container glass-card">
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Modal">&times;</button>
+            
+            <div class="modal-tabs">
+                <button class="modal-tab-btn active hover-target" data-tab="demo-tab" id="tab-demo-trigger">
+                    <i class="fas fa-terminal"></i> Interactive API Console
+                </button>
+                <button class="modal-tab-btn hover-target" data-tab="arch-tab" id="tab-arch-trigger">
+                    <i class="fas fa-sitemap"></i> System Architecture
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Tab 1: Live API Console -->
+                <div class="modal-tab-content active" id="demo-tab">
+                    <div class="api-console-wrapper">
+                        <div class="api-console-header">
+                            <div class="console-buttons">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
+                            </div>
+                            <span class="console-title">AI Operations Copilot API Terminal - localhost:8000</span>
+                        </div>
+                        <div class="api-console-body">
+                            <div class="console-instructions">
+                                <p class="text-green">// Select a sample log below and execute the RAG log parser pipeline.</p>
+                            </div>
+                            <div class="console-controls">
+                                <div class="select-group">
+                                    <label for="sample-log-select">Select Raw Log Input:</label>
+                                    <select id="sample-log-select" class="hover-target">
+                                        <option value="db_timeout">mysql_connection_pool: TIMEOUT [Exhausted pool connection after 10000ms]</option>
+                                        <option value="auth_leak">auth_service: JWT verification failed: Signature expired. Threat vector threshold: Critical</option>
+                                        <option value="disk_full">node_manager: DiskSpaceError: 99.4% storage capacity reached. Log ingestion suspended</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-primary btn-console hover-target" id="run-api-btn">
+                                    Execute API Query <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="console-output-container">
+                                <div class="output-spinner hide" id="consoleSpinner">
+                                    <div class="spinner"></div>
+                                    <span class="spinner-text">Querying vector store (ChromaDB) and executing local LLM context reconstruction...</span>
+                                </div>
+                                <pre id="consoleResult" class="console-result-code">
+{
+  "status": "ready",
+  "instruction": "Select a log input and press 'Execute API Query'."
+}
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tab 2: System Architecture -->
+                <div class="modal-tab-content" id="arch-tab">
+                    <div class="arch-visual-container">
+                        <div class="arch-header">
+                            <h4>AI Operations Copilot - RAG System Pipeline</h4>
+                            <p>This flow highlights the real-time ingest pipeline mapping log diagnostics to the ChromaDB vector database and Sentence Transformers model.</p>
+                        </div>
+                        <div class="arch-diagram-flow">
+                            <div class="flow-step">
+                                <div class="flow-step-icon"><i class="fas fa-file-alt"></i></div>
+                                <h5>1. Raw Log Ingestion</h5>
+                                <p>Unstructured system events (stdout, warnings, stack traces).</p>
+                            </div>
+                            <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+                            <div class="flow-step">
+                                <div class="flow-step-icon"><i class="fas fa-brain"></i></div>
+                                <h5>2. Semantic Embedding</h5>
+                                <p>Vectorized using Sentence Transformers (All-MiniLM-L6-v2).</p>
+                            </div>
+                            <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+                            <div class="flow-step">
+                                <div class="flow-step-icon"><i class="fas fa-database"></i></div>
+                                <h5>3. ChromaDB Query</h5>
+                                <p>Cosine-similarity lookup against historical root causes & solutions.</p>
+                            </div>
+                            <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+                            <div class="flow-step">
+                                <div class="flow-step-icon"><i class="fas fa-magic"></i></div>
+                                <h5>4. RAG Diagnostics</h5>
+                                <p>FastAPI processes context, generating actionable JSON payloads.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Custom JS -->
     <script src="app.js?v=1.0.1"></script>

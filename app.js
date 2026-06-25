@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const typewriter = document.getElementById('typewriter');
   const words = [
-    "Backend Systems.",
-    "Software Development Engineering.",
-    "Scalable API Architectures.",
-    "Modular Python & Java Services.",
-    "Optimized SQL Performance."
+    "GenAI & RAG applications.",
+    "FastAPI microservices.",
+    "intelligent automation.",
+    "scalable database optimization.",
+    "high-performance systems."
   ];
   
   let wordIndex = 0;
@@ -215,6 +215,194 @@ document.addEventListener('DOMContentLoaded', () => {
       formStatus.className = 'form-status-msg';
     }, 5000);
   };
+
+  /* ==========================================================================
+     INTERACTIVE API SIMULATOR & ARCHITECTURE MODAL
+     ========================================================================== */
+  const modal = document.getElementById('project-modal');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const demoTriggerBtn = document.getElementById('demo-btn-copilot');
+  const archTriggerBtn = document.getElementById('arch-btn-copilot');
+  const tabBtns = document.querySelectorAll('.modal-tab-btn');
+  const tabContents = document.querySelectorAll('.modal-tab-content');
+  const runApiBtn = document.getElementById('run-api-btn');
+  const logSelect = document.getElementById('sample-log-select');
+  const consoleSpinner = document.getElementById('consoleSpinner');
+  const consoleResult = document.getElementById('consoleResult');
+
+  // Open modal functions
+  const openModal = (tabName) => {
+    if (!modal) return;
+    modal.classList.add('active');
+    document.body.classList.add('overflow-hidden');
+    
+    // Switch to specified tab
+    switchTab(tabName);
+  };
+
+  const closeModal = () => {
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.classList.remove('overflow-hidden');
+  };
+
+  const switchTab = (tabId) => {
+    tabBtns.forEach(btn => {
+      if (btn.getAttribute('data-tab') === tabId) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    tabContents.forEach(content => {
+      if (content.getAttribute('id') === tabId) {
+        content.classList.add('active');
+      } else {
+        content.classList.remove('active');
+      }
+    });
+  };
+
+  // Add click listeners to project triggers
+  if (demoTriggerBtn) {
+    demoTriggerBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal('demo-tab');
+    });
+  }
+
+  if (archTriggerBtn) {
+    archTriggerBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal('arch-tab');
+    });
+  }
+
+  // Close triggers
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeModal);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Tab button handlers
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.getAttribute('data-tab');
+      switchTab(tabId);
+    });
+  });
+
+  // Mock API Database responses
+  const mockResponses = {
+    db_timeout: {
+      timestamp: new Date().toISOString(),
+      api_route: "/api/v1/incidents/analyze",
+      status: "analyzed",
+      raw_log: "mysql_connection_pool: TIMEOUT [Exhausted pool connection after 10000ms]",
+      rag_lookup: {
+        vector_store: "ChromaDB",
+        similarity_score: 0.962,
+        matched_incident_id: "INC-2026-8801",
+        historical_solution: "Increase application primary connection pool size from 20 to 50; configure connection life-limit timeouts to recycle idle socket files."
+      },
+      diagnostic_metadata: {
+        anomaly_probability: 0.89,
+        classification: "Database Pool Exhaustion",
+        severity: "HIGH"
+      },
+      actionable_recovery_steps: [
+        "1. Scale DB read-replicas immediately to offload heavy query JOIN operations.",
+        "2. Run connection pool reset query: 'FLUSH TABLES WITH READ LOCK; UNLOCK TABLES;'.",
+        "3. Apply database connection recycling parameters dynamically to environment config."
+      ]
+    },
+    auth_leak: {
+      timestamp: new Date().toISOString(),
+      api_route: "/api/v1/incidents/analyze",
+      status: "analyzed",
+      raw_log: "auth_service: JWT verification failed: Signature expired. Threat vector threshold: Critical",
+      rag_lookup: {
+        vector_store: "ChromaDB",
+        similarity_score: 0.941,
+        matched_incident_id: "INC-2025-0144",
+        historical_solution: "Known replay attack vector or clock drift issue in load-balancing cluster nodes. Restart authentication tokens manager and verify NTP server syncing."
+      },
+      diagnostic_metadata: {
+        anomaly_probability: 0.97,
+        classification: "Security Verification Failure",
+        severity: "CRITICAL"
+      },
+      actionable_recovery_steps: [
+        "1. Terminate active sessions associated with expired tokens.",
+        "2. Check if cluster NTP service is synchronized: run 'chronyc sources -v' on nodes.",
+        "3. Force rota secret key environment recycling if rate of failure exceeds 100 events/minute."
+      ]
+    },
+    disk_full: {
+      timestamp: new Date().toISOString(),
+      api_route: "/api/v1/incidents/analyze",
+      status: "analyzed",
+      raw_log: "node_manager: DiskSpaceError: 99.4% storage capacity reached. Log ingestion suspended",
+      rag_lookup: {
+        vector_store: "ChromaDB",
+        similarity_score: 0.985,
+        matched_incident_id: "INC-2026-3029",
+        historical_solution: "Purge Docker containers cache volume and rotate outdated diagnostic logs under /var/log/nginx/* and /var/log/syslog."
+      },
+      diagnostic_metadata: {
+        anomaly_probability: 0.99,
+        classification: "Storage Boundary Depleted",
+        severity: "CRITICAL"
+      },
+      actionable_recovery_steps: [
+        "1. Execute container pruning script: 'docker system prune -a --volumes --force'.",
+        "2. Trigger Nginx log rotation sequence 'logrotate -f /etc/logrotate.d/nginx'.",
+        "3. Suspend non-essential container writes until storage drops below 80%."
+      ]
+    }
+  };
+
+  // Run API simulation trigger
+  if (runApiBtn && logSelect && consoleResult && consoleSpinner) {
+    runApiBtn.addEventListener('click', () => {
+      const selectedValue = logSelect.value;
+      
+      // Hide results, show loading spinner
+      consoleResult.classList.add('hide');
+      consoleSpinner.classList.remove('hide');
+      runApiBtn.disabled = true;
+      runApiBtn.innerHTML = 'Executing Query... <i class="fas fa-spinner fa-spin"></i>';
+      
+      setTimeout(() => {
+        // Construct syntax highlighted JSON
+        const responseData = mockResponses[selectedValue] || { error: "Unknown log selected." };
+        responseData.timestamp = new Date().toISOString(); // Keep timestamp fresh
+        
+        consoleResult.textContent = JSON.stringify(responseData, null, 2);
+        
+        // Hide spinner, show code outputs
+        consoleSpinner.classList.add('hide');
+        consoleResult.classList.remove('hide');
+        
+        // Restore button state
+        runApiBtn.disabled = false;
+        runApiBtn.innerHTML = 'Execute API Query <i class="fas fa-paper-plane"></i>';
+        
+        // Re-register hover states in case new custom cursors need highlighting
+        if (typeof registerHoverTargets === 'function') {
+          registerHoverTargets();
+        }
+      }, 1500);
+    });
+  }
 });
 
 /* ==========================================================================
