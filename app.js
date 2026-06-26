@@ -219,20 +219,56 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      INTERACTIVE API SIMULATOR & ARCHITECTURE MODAL
      ========================================================================== */
+  /* ==========================================================================
+     INTERACTIVE API SIMULATOR & ARCHITECTURE MODAL
+     ========================================================================== */
   const modal = document.getElementById('project-modal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const demoTriggerBtn = document.getElementById('demo-btn-copilot');
-  const archTriggerBtn = document.getElementById('arch-btn-copilot');
   const tabBtns = document.querySelectorAll('.modal-tab-btn');
   const tabContents = document.querySelectorAll('.modal-tab-content');
+  
+  // Project 1 Console Elements
   const runApiBtn = document.getElementById('run-api-btn');
   const logSelect = document.getElementById('sample-log-select');
   const consoleSpinner = document.getElementById('consoleSpinner');
   const consoleResult = document.getElementById('consoleResult');
 
+  // Project 2 Console Elements
+  const runThreatBtn = document.getElementById('run-threat-btn');
+  const threatSelect = document.getElementById('threat-log-select');
+  const threatSpinner = document.getElementById('threatSpinner');
+  const threatResult = document.getElementById('threatResult');
+
+  // Project 3 Console Elements
+  const runTumorBtn = document.getElementById('run-tumor-btn');
+  const tumorSelect = document.getElementById('tumor-select');
+  const tumorSpinner = document.getElementById('tumorSpinner');
+  const tumorResult = document.getElementById('tumorResult');
+
   // Open modal functions
-  const openModal = (tabName) => {
+  const openModal = (tabName, projectKey) => {
     if (!modal) return;
+
+    // Toggle content wrappers based on projectKey
+    const demoWrappers = document.querySelectorAll('.project-demo-wrapper');
+    const archWrappers = document.querySelectorAll('.project-arch-wrapper');
+    
+    demoWrappers.forEach(wrap => {
+      if (wrap.id === `project-demo-${projectKey}`) {
+        wrap.classList.remove('hide');
+      } else {
+        wrap.classList.add('hide');
+      }
+    });
+    
+    archWrappers.forEach(wrap => {
+      if (wrap.id === `project-arch-${projectKey}`) {
+        wrap.classList.remove('hide');
+      } else {
+        wrap.classList.add('hide');
+      }
+    });
+    
     modal.classList.add('active');
     document.body.classList.add('overflow-hidden');
     
@@ -264,20 +300,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Add click listeners to project triggers
-  if (demoTriggerBtn) {
-    demoTriggerBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal('demo-tab');
-    });
-  }
+  // Setup dynamic triggers for the modal
+  const setupModalTrigger = (btnId, tabName, projectKey) => {
+    const btn = document.getElementById(btnId);
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal(tabName, projectKey);
+      });
+    }
+  };
 
-  if (archTriggerBtn) {
-    archTriggerBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal('arch-tab');
-    });
-  }
+  // Project 1 Triggers
+  setupModalTrigger('demo-btn-copilot', 'demo-tab', 'copilot');
+  setupModalTrigger('arch-btn-copilot', 'arch-tab', 'copilot');
+
+  // Project 2 Triggers
+  setupModalTrigger('demo-btn-threat', 'demo-tab', 'threat');
+  setupModalTrigger('arch-btn-threat', 'arch-tab', 'threat');
+
+  // Project 3 Triggers
+  setupModalTrigger('demo-btn-tumor', 'demo-tab', 'tumor');
+  setupModalTrigger('arch-btn-tumor', 'arch-tab', 'tumor');
 
   // Close triggers
   if (modalCloseBtn) {
@@ -300,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Mock API Database responses
+  // Mock API Database responses for Project 1: AI Operations Copilot
   const mockResponses = {
     db_timeout: {
       timestamp: new Date().toISOString(),
@@ -370,40 +414,181 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Run API simulation trigger
+  // Mock responses for Project 2: AI Network Threat Detection
+  const mockThreatResponses = {
+    normal_ping: {
+      timestamp: new Date().toISOString(),
+      source_ip: "192.168.1.45",
+      dest_port: 80,
+      protocol: "TCP",
+      request_rate: "1.2 req/sec",
+      anomaly_score: 0.12,
+      anomaly_flag: "NORMAL",
+      engine_decision: "ALLOW_TRAFFIC",
+      security_action: "No action required. Traffic patterns conform to standard local network usage metrics."
+    },
+    ddos_flood: {
+      timestamp: new Date().toISOString(),
+      source_ip: "45.22.189.12",
+      dest_port: 80,
+      protocol: "TCP",
+      request_rate: "850 req/sec",
+      anomaly_score: 0.94,
+      anomaly_flag: "ANOMALOUS",
+      engine_decision: "DENY_RATE_LIMIT",
+      security_action: "Burst volume exceeds rate-limiting threshold. Active rate-limit middleware triggered. Temporarily dropped connections from source IP for 300 seconds."
+    },
+    sql_inject: {
+      timestamp: new Date().toISOString(),
+      source_ip: "109.88.23.101",
+      dest_port: 443,
+      protocol: "HTTPS",
+      request_rate: "0.5 req/sec",
+      anomaly_score: 0.98,
+      anomaly_flag: "CRITICAL_ANOMALOUS",
+      engine_decision: "DENY_IP_BLOCK",
+      security_action: "SQL injection payload signature detected in request query parameters. Active socket terminated. IP address appended to system IPTables firewall block list."
+    }
+  };
+
+  // Mock responses for Project 3: Tumor Detection API
+  const mockTumorResponses = {
+    benign_sample: {
+      timestamp: new Date().toISOString(),
+      model_accuracy: "96.4%",
+      features_parsed: {
+        clump_thickness: 2,
+        uniformity_cell_size: 1,
+        uniformity_cell_shape: 1,
+        marginal_adhesion: 1,
+        single_epithelial_size: 2,
+        bare_nuclei: 1,
+        bland_chromatin: 1,
+        normal_nucleoli: 1,
+        mitoses: 1
+      },
+      classification: "BENIGN",
+      malignant_probability: "3.2%",
+      benign_probability: "96.8%",
+      clinical_recommendation: "Routine observation only. Cell structures are consistent with typical benign characteristics."
+    },
+    malignant_sample: {
+      timestamp: new Date().toISOString(),
+      model_accuracy: "96.4%",
+      features_parsed: {
+        clump_thickness: 8,
+        uniformity_cell_size: 10,
+        uniformity_cell_shape: 10,
+        marginal_adhesion: 8,
+        single_epithelial_size: 7,
+        bare_nuclei: 10,
+        bland_chromatin: 9,
+        normal_nucleoli: 7,
+        mitoses: 4
+      },
+      classification: "MALIGNANT",
+      malignant_probability: "98.9%",
+      benign_probability: "1.1%",
+      clinical_recommendation: "Immediate biopsy recommended. Model weights indicate high density malignant cluster structures."
+    },
+    borderline_sample: {
+      timestamp: new Date().toISOString(),
+      model_accuracy: "96.4%",
+      features_parsed: {
+        clump_thickness: 5,
+        uniformity_cell_size: 4,
+        uniformity_cell_shape: 4,
+        marginal_adhesion: 5,
+        single_epithelial_size: 3,
+        bare_nuclei: 3,
+        bland_chromatin: 5,
+        normal_nucleoli: 4,
+        mitoses: 2
+      },
+      classification: "BORDERLINE / INDETERMINATE",
+      malignant_probability: "48.5%",
+      benign_probability: "51.5%",
+      clinical_recommendation: "Additional histopathology tests recommended. Intermediate sample characteristics prevent clear single-model classification."
+    }
+  };
+
+  // Run API simulation triggers
   if (runApiBtn && logSelect && consoleResult && consoleSpinner) {
     runApiBtn.addEventListener('click', () => {
       const selectedValue = logSelect.value;
-      
-      // Hide results, show loading spinner
       consoleResult.classList.add('hide');
       consoleSpinner.classList.remove('hide');
       runApiBtn.disabled = true;
       runApiBtn.innerHTML = 'Executing Query... <i class="fas fa-spinner fa-spin"></i>';
       
       setTimeout(() => {
-        // Construct syntax highlighted JSON
         const responseData = mockResponses[selectedValue] || { error: "Unknown log selected." };
-        responseData.timestamp = new Date().toISOString(); // Keep timestamp fresh
+        responseData.timestamp = new Date().toISOString();
         
         consoleResult.textContent = JSON.stringify(responseData, null, 2);
-        
-        // Hide spinner, show code outputs
         consoleSpinner.classList.add('hide');
         consoleResult.classList.remove('hide');
-        
-        // Restore button state
         runApiBtn.disabled = false;
         runApiBtn.innerHTML = 'Execute API Query <i class="fas fa-paper-plane"></i>';
         
-        // Re-register hover states in case new custom cursors need highlighting
         if (typeof registerHoverTargets === 'function') {
           registerHoverTargets();
         }
-      }, 1500);
+      }, 1200);
+    });
+  }
+
+  if (runThreatBtn && threatSelect && threatResult && threatSpinner) {
+    runThreatBtn.addEventListener('click', () => {
+      const selectedValue = threatSelect.value;
+      threatResult.classList.add('hide');
+      threatSpinner.classList.remove('hide');
+      runThreatBtn.disabled = true;
+      runThreatBtn.innerHTML = 'Scanning Packet... <i class="fas fa-spinner fa-spin"></i>';
+      
+      setTimeout(() => {
+        const responseData = mockThreatResponses[selectedValue] || { error: "Unknown packet payload." };
+        responseData.timestamp = new Date().toISOString();
+        
+        threatResult.textContent = JSON.stringify(responseData, null, 2);
+        threatSpinner.classList.add('hide');
+        threatResult.classList.remove('hide');
+        runThreatBtn.disabled = false;
+        runThreatBtn.innerHTML = 'Scan Network Packet <i class="fas fa-shield-alt"></i>';
+        
+        if (typeof registerHoverTargets === 'function') {
+          registerHoverTargets();
+        }
+      }, 1200);
+    });
+  }
+
+  if (runTumorBtn && tumorSelect && tumorResult && tumorSpinner) {
+    runTumorBtn.addEventListener('click', () => {
+      const selectedValue = tumorSelect.value;
+      tumorResult.classList.add('hide');
+      tumorSpinner.classList.remove('hide');
+      runTumorBtn.disabled = true;
+      runTumorBtn.innerHTML = 'Running Model... <i class="fas fa-spinner fa-spin"></i>';
+      
+      setTimeout(() => {
+        const responseData = mockTumorResponses[selectedValue] || { error: "Unknown cell sample." };
+        responseData.timestamp = new Date().toISOString();
+        
+        tumorResult.textContent = JSON.stringify(responseData, null, 2);
+        tumorSpinner.classList.add('hide');
+        tumorResult.classList.remove('hide');
+        runTumorBtn.disabled = false;
+        runTumorBtn.innerHTML = 'Run Classifier Inference <i class="fas fa-microscope"></i>';
+        
+        if (typeof registerHoverTargets === 'function') {
+          registerHoverTargets();
+        }
+      }, 1200);
     });
   }
 });
+
 
 /* ==========================================================================
    CUSTOM CURSOR INTERPOLATION (LERP)
