@@ -716,10 +716,10 @@ const fetchGitHubRepos = async () => {
         githubReposGrid.innerHTML = ''; // Clear loading spinner
 
         const customRepoDescriptions = {
-            'AI_Operations_copilot': 'GenAI incident copilot utilizing a RAG pipeline and ChromaDB semantic searches to ingest logs, detect anomalies and suggest root-cause resolution workflows.',
-            'AI_Network_Defence_System': 'High-performance packet validator utilizing Isolation Forest anomaly scoring to scan network traffic, trigger rate-limiting and block suspicious endpoint vectors.',
-            'Tumor_Detection': 'Diagnostic backend system mapping predictive machine learning output (96% accuracy) to REST APIs, sending high-speed structured JSON payloads for medical visualizations.',
-            'financial-advisory-system': 'Robust database querying microservice managing complex database transactions with multi-table joins. Wrote optimized multi-table JOINs in raw SQL to maximize execution speed.',
+            'AI_Operations_copilot': 'GenAI-powered incident management system that automates root-cause analysis of system logs using LLMs. Features a Retrieval-Augmented Generation (RAG) pipeline with ChromaDB and Sentence Transformers.',
+            'AI_Network_Defence_System': 'Scalable Flask REST APIs built with anomaly detection and rate limiting for real-time threat monitoring and alert management; deployed live on Vercel.',
+            'Tumor_Detection': 'Trained a predictive ML model achieving 92% diagnostic accuracy and exposed inference via Flask REST APIs with structured JSON responses.',
+            'financial-advisory-system': 'Designed a robust CRUD API service handling multi-table joins in MySQL, with Postman-validated endpoints and structured error handling.',
             'Employee_Performance_and_Retention_analysis': 'Data-driven analysis utilizing Python libraries to dissect factors contributing to employee retention, training needs and overall workspace productivity levels.',
             'Neural_Network': 'A pure Python implementation of deep neural layers from scratch to solve vanishing gradient issues by replacing Sigmoid with ReLU and implementing Xavier initialization.'
         };
